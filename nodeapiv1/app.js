@@ -38,26 +38,41 @@ dotenv.config();
 // server.listen(portSocketIO, () => console.log(`Port of SocketIO is 
 //     listening on port ${portSocketIO}`));
 
-var server = require("http").Server(app);
-var io = require("socket.io")(server);
-var portOfSocketIO = 8888;
-server.listen(portOfSocketIO);
+const server = require("http").Server(app);
+const io = require("socket.io")(server);
+const portOfSocketIO = 8082;
+const mangUsers = [];
+server.listen(portOfSocketIO, () => console.log(`Port of SocketIO is 
+    listening on port ${portOfSocketIO}`));
 
-io.on("connection", function(socket) {
+io.on('connection', function(socket) {
     console.log("Co nguoi ket noi " + socket.id);
 
-    socket.emit('news', { hello: 'world' });
+    socket.on('client-send-Username', function(data) {
+        console.log(data);
+        if (mangUsers.indexOf(data) >= 0) {
+            socket.emit('server-send-dki-thatbai');
+        } else {
+            mangUsers.push(data);
+            socket.Username = data;
+            socket.emit('server-send-dki-thanhcong', data);
+            io.sockets.emit('server-send-danhsach-User', mangUsers);
+        }
+    });
 
+    // socket.emit('news', { hello: 'world' });
+    socket.on('disconnect', function (data) {
+        console.log(socket.id + "disconnect");
+    });
 });
 
-server.listen(portOfSocketIO, () => console.log(`Port of SocketIO is 
-    listening on port ${portSocketIO}`));
+
 
 // db
 // mongodb://kaloraat:dhungel8@ds257054.mlab.com:57054/nodeapi
 // MONGO_URI=mongodb://localhost/nodeapi
 mongoose
-    .connect('mongodb+srv://dbnode:251090asd@cluster0-6okxm.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true })
+    .connect(process.env.MONGO_URI, { useNewUrlParser: true })
     .then(() => console.log("DB Connected"));
 
 mongoose.connection.on("error", err => {

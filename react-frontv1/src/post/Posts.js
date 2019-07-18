@@ -150,39 +150,7 @@ class Posts extends Component {
 
                         
                             <div className="col-lg-3">
-                                <div className="panel panel-default">
-                                <div className="panel-body">
-                                <div className="cnt-label">
-                                        <div className="info">
-                                            <i className="l-i" id="l-i-i"></i>
-                                            <span>Giới thiệu</span>
-                                        </div>
-                                        
-                                        <div className="lb-action">
-                                            
-                                            {isAuthenticated().user && isAuthenticated().user._id === user._id && (
-                                                <>
-                                                    <Link to={`/user/edit/${user._id}`}
-                                                    >
-                                                        <i className="fas fa-pencil-alt"></i>
-                                                    </Link>
-                                                    
-                                                </>
-                                            )}
-
-                                            
-                                        </div>
-
-                                </div>
-                                <div id="i-box">
-                                    <div id="intro-line">Tôi là {user.name}</div>
-                                    <div id="u-occ">
-                                        {user.about}
-                                        </div>
-                                    <div id="u-loc"><i className="fas fa-map-marker"></i><a href="#">{user.location}</a></div>
-                                </div>
-                                </div>
-                            </div>
+                                
 
                                 <div className="l-cnt l-mrg">
                                                 <div className="cnt-label">
@@ -216,10 +184,10 @@ class Posts extends Component {
                                 <div className="m-mrg" id="composer">
                                                 <div id="c-tabs-cvr">
                                                     <div className="tb" id="c-tabs">
-                                                        <div className="td active"><i className="fas fa-th"></i><span>Make Post</span></div>
+                                                        <div className="td active"><i className="fas fa-th"></i><span>Tạo bài viết</span></div>
                                                         <div className="td"><i className="fas fa-camera-retro"></i><span>Photo/Video</span></div>
                                                         <div className="td"><i className="fas fa-video"></i><span>Live Video</span></div>
-                                                        <div className="td"><i className="far fa-calendar-alt"></i><span>Life Event</span></div>
+                                                        <div className="td"><i className="far fa-calendar-alt"></i><span>Dòng thời gian</span></div>
                                                     </div>
                                                 </div>
                                                 <div id="c-c-main">

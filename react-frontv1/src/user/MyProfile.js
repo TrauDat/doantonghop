@@ -9,6 +9,7 @@ import FollowProfileButton from "./FollowProfileButton";
 import { listByUser } from '../post/apiPost';
 import DefaultPost from "../img/beach.jpg";
 import ProfileTabs from "./ProfileTabs";
+import DeleteUser from "./DeleteUser";
 
 class MyProfile extends Component {
 
@@ -222,11 +223,7 @@ class MyProfile extends Component {
                                                 />
                                             )}
 
-                                   
-                                    <div className="td">
-                                        <div className="m-btn">
-                                        <i className="fas fa-lock"></i><span>Xóa tài khoản</span></div>
-                                    </div>
+                                    <DeleteUser userId={user._id} />
                     
                                 </div>
                             </div>

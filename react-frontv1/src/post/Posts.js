@@ -49,10 +49,10 @@ class Posts extends Component {
         // this.init(userId);
         this.loadPosts(this.state.page);
     }
-    componentWillReceiveProps(props) {
-        const userId = props.match.params.userId;
-        this.init(userId);
-    }
+    // componentWillReceiveProps(props) {
+    //     const userId = props.match.params.userId;
+    //     this.init(userId);
+    // }
 
     renderPosts = posts => {
         return (
@@ -64,6 +64,9 @@ class Posts extends Component {
                     const posterName = post.postedBy
                         ? post.postedBy.name
                         : " Unknown";
+                    
+                        
+                
 
                     return (
                         <div>
@@ -84,12 +87,12 @@ class Posts extends Component {
                                     <div className="p-u-info">
                                     <Link to={`${posterId}`}>
                                         {posterName}{" "}
-                                    </Link> shared a memory with
-                                     <a href="#">Himalaya Singh</a> 
+                                    </Link> 
                                     </div>
                                     <div className="p-dt">
                                     <i className="fas fa-calendar"></i>
                                     {new Date(post.created).toDateString()}
+                             
                                     </div>
                                 </div>
                                 <div className="td p-opt"><i className="fas fa-chevron-down"></i></div>
@@ -112,13 +115,7 @@ class Posts extends Component {
                                         /> 
                                 </Link>
                             
-                            {/* <div>
-                                <div className="p-acts">
-                                    <div className="p-act like"><i className="fas fa-thumbs-up"></i><span>25</span></div>
-                                    <div className="p-act comment"><i className="far fa-comments"></i><span>1</span></div>
-                                    <div className="p-act share"><i className="fas fa-reply"></i></div>
-                                </div>
-                            </div> */}
+                      
                         </div>
                         </div>
                     );
@@ -139,19 +136,8 @@ class Posts extends Component {
               }?${new Date().getTime()}`
             : DefaultProfile;
 
-        const photoBackgroundUrl = user._id
-            ? `http://localhost:8080/api/user/photoBackground/${
-                  user._id
-              }?${new Date().getTime()}`
-            : DefaultBanner;
-
-        // const photoUrl = user._id ? 
-        // `${process.env.REACT_APP_API_URL}/api/user/photo/${
-        //     user._id
-        // }?${new Date().getTime()}` : DefaultProfile;
-
         
-
+       
         return (
             
 
@@ -201,7 +187,7 @@ class Posts extends Component {
                                 <div className="l-cnt l-mrg">
                                                 <div className="cnt-label">
                                                     <i className="l-i" id="l-i-p"></i>
-                                                    <span>Photos</span>
+                                                    <span>Hình ảnh</span>
                                                     <div className="lb-action" id="b-i"><i className="far fa-image"></i></div>
                                                 </div>
                                                 <div id="photos">
@@ -259,15 +245,7 @@ class Posts extends Component {
 
                         <div>
                             {this.renderPosts(posts)}
-                        {/* <div className="panel panel-default">
-                            <div className="panel-body">
-                            <p>Hello people! This is my first FaceClone post. Hurray!!!</p>
-                            </div>
-                            <div className="panel-footer">
-                            <span>posted 2017-5-27 20:45:01 by nicholaskajoh</span> 
-                            <span className="pull-right"><a className="text-danger" href="#">[delete]</a></span>
-                            </div>
-                        </div> */}
+                        
                         </div>
                     </div>
                     <div className="col-lg-3">

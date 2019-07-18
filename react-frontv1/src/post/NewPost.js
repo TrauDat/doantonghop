@@ -75,7 +75,7 @@ class NewPost extends Component {
     newPostForm = (title, body) => (
         <form>
             <div className="form-group">
-                <label className="text-muted">Post Photo</label>
+                <label className="text-muted">Ảnh bài viết</label>
                 <input
                     onChange={this.handleChange("photo")}
                     type="file"
@@ -84,7 +84,7 @@ class NewPost extends Component {
                 />
             </div>
             <div className="form-group">
-                <label className="text-muted">Title</label>
+                <label className="text-muted">Tiêu đề bài viết</label>
                 <input
                     onChange={this.handleChange("title")}
                     type="text"
@@ -94,7 +94,7 @@ class NewPost extends Component {
             </div>
 
             <div className="form-group">
-                <label className="text-muted">Body</label>
+                <label className="text-muted">Nội dung</label>
                 <textarea
                     onChange={this.handleChange("body")}
                     type="text"
@@ -107,7 +107,7 @@ class NewPost extends Component {
                 onClick={this.clickSubmit}
                 className="btn btn-raised btn-primary"
             >
-                Create Post
+                Tạo bài viết
             </button>
         </form>
     );
@@ -129,7 +129,7 @@ class NewPost extends Component {
 
         return (
             <div className="container">
-                <h2 className="mt-5 mb-5">Create a new post</h2>
+                <h2 className="mt-5 mb-5">Tạo một bài viết mới</h2>
                 <div
                     className="alert alert-danger"
                     style={{ display: error ? "" : "none" }}

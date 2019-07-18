@@ -14,6 +14,7 @@ import PrivateRoute from "./auth/PrivateRoute";
 import NewPost from "./post/NewPost";
 import SinglePost from "./post/SinglePost";
 import Search from "./user/Search";
+import Chat from "./chat/Chat";
 
 const MainRouter = () => (
     <div>
@@ -24,6 +25,7 @@ const MainRouter = () => (
             <PrivateRoute exact path="/post/create" component={NewPost} />
             <Route exact path="/" component={Home}></Route>
             <Route exact path="/search" component={Search}></Route>
+            <Route exact path="/chat" component={Chat}></Route>
             <Route exact path="/post/:postId" component={SinglePost}></Route>
             <Route exact path="/register" component={Register}></Route>
             

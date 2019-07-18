@@ -9,6 +9,49 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 
+//this code i'm building with socket.io :((
+// const http = require('http')
+// const socketIO = require('socket.io');
+// const portSocketIO = 8888;
+// const server = http.createServer(app);
+// const io=socketIO(server);
+
+
+
+// io.on('connection', function (socket) {
+//     console.log("Co nguoi ket noi " + socket.id);
+
+//     socket.on('change color', (color) => {
+//         console.log('Color Changed to: ', color);
+//         io.sockets.emit('change color', color);
+//     });
+
+//     socket.on('disconnect', () => {
+//         console.log('user disconnected' + socket.id);
+//     });
+//     // socket.emit('news'. { hello: 'world'});
+//     // socket.on('my other event', function (data) {
+//     //     console.log(data);
+//     // });
+// });
+
+// server.listen(portSocketIO, () => console.log(`Port of SocketIO is 
+//     listening on port ${portSocketIO}`));
+
+var server = require("http").Server(app);
+var io = require("socket.io")(server);
+var portOfSocketIO = 8888;
+server.listen(portOfSocketIO);
+
+io.on("connection", function(socket) {
+    console.log("Co nguoi ket noi " + socket.id);
+
+    socket.emit('news', { hello: 'world' });
+
+});
+
+server.listen(portOfSocketIO, () => console.log(`Port of SocketIO is 
+    listening on port ${portSocketIO}`));
 
 // db
 // mongodb://kaloraat:dhungel8@ds257054.mlab.com:57054/nodeapi

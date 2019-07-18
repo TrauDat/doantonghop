@@ -30,7 +30,7 @@ const Menu = ({ history }) => (
                         style={isActive(history, "/users")}
                         to="/users"
                     >
-                                Users
+                                Mọi người
                     </Link>
                 </li>
                 <li >
@@ -38,7 +38,7 @@ const Menu = ({ history }) => (
                         style={isActive(history, "/")}
                         to="/"
                     >
-                                Home
+                                Trang chủ
                     </Link>
                 </li>
                 
@@ -69,8 +69,8 @@ const Menu = ({ history }) => (
                                 <h4>Trau Dat</h4>
                             </div>
                             <div>
-                                <button className="btn btn-primary" style={{width: "50%"}}>Accept</button>
-                                <button className="btn btn-primary" style={{width: "50%"}}>Reject</button>
+                                <button className="btn btn-primary" style={{width: "50%"}}>Đồng ý</button>
+                                <button className="btn btn-primary" style={{width: "50%"}}>Từ chối</button>
                             </div> 
                         </Dropdown.Item>
                     </Dropdown.Menu>
@@ -78,9 +78,11 @@ const Menu = ({ history }) => (
            </li>
            
            <li>
-             <a href="home.html">
-               <i className="fa fa-comments" aria-hidden="true"></i>
-             </a>
+                <Link
+                    to="/chat"
+                >
+                    <i className="fa fa-comments" aria-hidden="true"></i>
+                </Link>
            </li>
            <li>
              <a href="home.html">
@@ -120,7 +122,7 @@ const Menu = ({ history }) => (
                     onClick={() => signout(() => history.push('/register'))}
                 
                 >
-                    Sign Out   
+                    Đăng xuất   
                 </a>   
 
                

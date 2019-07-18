@@ -83,7 +83,7 @@ class MyProfile extends Component {
     renderPosts = posts => {
         return (
             <>
-                {posts.map((post, i) => {
+                {posts.map((post, index) => {
                     const posterId = post.postedBy
                         ? `/user/${post.postedBy._id}`
                         : "";
@@ -93,7 +93,7 @@ class MyProfile extends Component {
 
                     return (
                         <div>
-                        <div className="post" key={i}>
+                        <div className="post" key={index}>
                             <div className="tb">
                                 <a href="#" className="td p-p-pic">
                              
@@ -211,7 +211,7 @@ class MyProfile extends Component {
                                                 >
                                                     <div className="td">
                                                         <div className="m-btn">
-                                                        <i class="fas fa-list"></i><span>Make Post</span>
+                                                        <i className="fas fa-list"></i><span>Tạo bài viết</span>
                                                         </div>
                                                     </div>
                                                 </Link>
@@ -225,7 +225,7 @@ class MyProfile extends Component {
                                    
                                     <div className="td">
                                         <div className="m-btn">
-                                        <i class="fas fa-lock"></i><span>Delete Account</span></div>
+                                        <i className="fas fa-lock"></i><span>Xóa tài khoản</span></div>
                                     </div>
                     
                                 </div>
@@ -278,7 +278,7 @@ class MyProfile extends Component {
                                 <div className="l-cnt l-mrg">
                                                 <div className="cnt-label">
                                                     <i className="l-i" id="l-i-p"></i>
-                                                    <span>Photos</span>
+                                                    <span>Hình ảnh</span>
                                                     <div className="lb-action" id="b-i"><i className="far fa-image"></i></div>
                                                 </div>
                                                 <div id="photos">

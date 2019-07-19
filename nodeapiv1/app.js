@@ -12,10 +12,12 @@ dotenv.config();
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const portOfSocketIO = 8082;
-const { VERIFY_USER, USER_CONNECTED, LOGOUT } = require('./Event');
+const { VERIFY_USER, USER_CONNECTED, USER_DISCONNECTED ,LOGOUT, COMMUNITY_CHAT } = require('./Event');
 const { createUser, createMessage, createChat } = require('./Factories');
 
 let connectedUsers = {};
+let communityChat = createChat();
+
 server.listen(portOfSocketIO, () => console.log(`Port of SocketIO is 
     listening on port ${portOfSocketIO}`));
 
@@ -60,6 +62,27 @@ io.on('connection', function(socket) {
         io.emit(USER_CONNECTED, connectedUsers)
         console.log(connectedUsers);
     })
+
+    //User disconnects
+    socket.on('disconnect', function (){
+        if(!!socket.user){
+          connectedUsers = removeUser(connectedUsers, socket.user)
+          
+          io.emit(USER_DISCONNECTED, connectedUsers)
+        }
+        console.log(connectedUsers, " ngat ket noi")
+    })
+
+    //Logout
+    socket.on(LOGOUT, function(){
+        connectedUsers = removeUser(connectedUsers, socket.user)
+    })
+
+    //Get Community Chat
+    socket.on(COMMUNITY_CHAT, function(callback){
+        callback(communityChat)
+      })
+
 });
 
 function isUser(userList, username) {

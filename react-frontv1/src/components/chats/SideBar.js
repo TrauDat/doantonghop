@@ -10,7 +10,7 @@ export default class SideBar extends Component {
 		return (
 			<div id="side-bar">
 					<div className="heading">
-						<div className="app-name">Zanjo Chat <FaChevronDown /></div>
+						<div className="app-name">Messenger Chat <FaChevronDown /></div>
 						<div className="menu">
 							<MdMenu />
 						</div>
